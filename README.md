@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Springboard Instructions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **React Forms Exercises**
 
-## Available Scripts
+These exercises will give you more practice working with React forms.
 
-In the project directory, you can run:
+## **Testing Requirements**
 
-### `npm start`
+Make sure both of these apps have tests. Here are the guidelines for testing:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Every component needs a smoke + snapshot test.**
+- **Critical Business Logic needs tests too**. Use your judgement for this, but make sure you cover core functionality. Examples include: the ability to enter data, submit a form, and have the desired outcome appear in the DOM.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Part 1 - Color Box Maker**
 
-### `npm test`
+Create a new React application, which contains the following components:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+***App***
 
-### `npm run build`
+this component should render the ***BoxList*** component.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+***BoxList***
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Place your state that contains all of the boxes here. This component should render all of the ***Box*** components along with the ***NewBoxForm*** component
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+***Box***
 
-### `npm run eject`
+this component should display a ***div*** with a background color, width and height based on the props passed to it.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+***NewBoxForm***
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+this component should render a form that when submitted, creates a new ***Box***. You should be able to specify the ***Box***’s width, height, and background color. When the form is submitted, clear the input values.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- When each ***Box*** component is displayed, add a button with the text of “X” next to each ***Box***. When this button is clicked, remove that specific box. This will require you to pass a function down as props - the button **should not** be a separate component, it should be included in the Box component.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## **Part 2 - Todo App - List, Add, Remove Todos**
 
-## Learn More
+Create a Todo App that allows users to see, add, edit, and remove todos. It should contain the following components.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+***App***
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+this component should render the ***TodoList*** component
 
-### Code Splitting
+***TodoList***
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+this component should render the ***NewTodoForm*** component and should render the list of Todo components. Place your state that contains all of the todos in this component.
 
-### Analyzing the Bundle Size
+***NewTodoForm***
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+this component should render a form with one text input for the task to be created. When this form is submitted, a new ***Todo*** component should be created. 
 
-### Making a Progressive Web App
+***Todo***
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+this component should display a ***div*** with the task of the todo.
 
-### Advanced Configuration
+For each Todo component, there should also be a button with the text “X” that when clicked, removes the todo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## **Further Study**
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- It’s time to edit some todos! Each ***Todo*** component should also display a button with the text “edit” that when clicked, displays ***form*** with the task of the todo as an input and a button to submit the form. When the form is submitted, the task of the text should be updated and the form should be hidden.
+- When each ***Todo*** component is displayed, add a button with the text of “Mark as completed”. When this button is clicked, add a strike through the text of the todo.
+- Instead of a button that when clicked adds a strike through, refactor your application so that when that button is clicked, if the todo is completed (something each todo will have in state), add a strike through, otherwise if a todo is not completed, remove the strike through.
+- Add some styling to your application! Try to use a CSS animation that fades out a ***Todo*** when it is deleted (this will involve adding/removing CSS classes). Write this using SASS!
+- Save your todos in localStorage and retrieve them when the page loads.
